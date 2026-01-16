@@ -7,6 +7,7 @@ from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from jwt.exceptions import InvalidTokenError
 from pwdlib import PasswordHash
 from src.models.auth import Token
+from src.models.user import CreateUser
 
 router = APIRouter(prefix="/auth")
 
@@ -20,5 +21,8 @@ async def login(form_data: Annotated[OAuth2PasswordRequestForm, Depends()]) -> T
     pass
 
 @router.post("/register", description="Registration Authentication", status_code=status.HTTP_201_CREATED, response_model=Token)
-async def register():
+async def register(user_data: CreateUser):
+    # Need to push to database
+    # Hash password 
+    # Return token
     pass

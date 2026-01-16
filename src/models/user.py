@@ -6,3 +6,6 @@ class User(BaseModel):
     email: str
     role: List[str]
     organization: str
+
+class CreateUser(User):
+    password: str
